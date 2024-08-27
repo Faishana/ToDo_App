@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../constance/colour.dart';
+import 'package:sample/constance/colour.dart';
 import '../widgets/ToDoBox.dart';
 
 class home extends StatelessWidget {
