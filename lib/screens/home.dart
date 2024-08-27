@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:sample/constance/colour.dart';
+import '../constance/colour.dart';
+import '../widgets/ToDoBox.dart';
 
 class home extends StatelessWidget {
   const home({super.key});
@@ -11,10 +12,25 @@ class home extends StatelessWidget {
       appBar: appbar_creation(),
       body: Container(
         margin: const EdgeInsets.only(top: 20),
-        padding: const EdgeInsets.symmetric(horizontal: 15),
+        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 30),
         child: Column(
           children: [
             search_box(),
+            Expanded(
+              child: ListView(
+                children: [
+                  Container(
+                    margin: const EdgeInsets.only(top: 50, bottom: 20),
+                    child: const Text('All ToDo', 
+                    style: TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.w500,
+                    ),),
+                  ),
+                  ToDoBox(),
+                ],
+              ),
+            )
           ],
         )
       ),
@@ -22,7 +38,7 @@ class home extends StatelessWidget {
   }
 
   // ignore: non_constant_identifier_names
-  Container search_box() {
+  Widget search_box() {
     return Container(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             decoration: BoxDecoration(
@@ -45,6 +61,8 @@ class home extends StatelessWidget {
                 
               ),
             ),
+
+
           );
   }
 
