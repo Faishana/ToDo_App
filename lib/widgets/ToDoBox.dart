@@ -3,15 +3,19 @@ import 'package:sample/model/todo.dart';
 
 class ToDoBox extends StatelessWidget {
   final Todo todo;
-  const ToDoBox({super.key, required this.todo});
+  final OnToDoChanged;
+  final onDeleteItem;
+
+  const ToDoBox({super.key, required this.todo, this.OnToDoChanged, this.onDeleteItem});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(bottom: 20),
+      
       child: ListTile(
         onTap: () {
-          
+          OnToDoChanged(todo);
         },
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
@@ -23,10 +27,10 @@ class ToDoBox extends StatelessWidget {
         ),
 
         title: Text(todo.todoText!,
-        style: TextStyle(
+        style: const TextStyle(
           color: Colors.black,
           fontWeight: FontWeight.w300,
-          decoration: todo.isDone? TextDecoration.lineThrough : null,  // If u want to make the text over a line we can use this widget
+          //decoration: todo.isDone? TextDecoration.lineThrough : null,  // If u want to make the text over a line we can use this widget
 
         ),
         
@@ -45,7 +49,8 @@ class ToDoBox extends StatelessWidget {
             iconSize: 15,
             onPressed: (){
               // If we need to check the click button was work or not
-              print('Clicked on delete!');
+              //print('Clicked on delete!');
+              onDeleteItem(todo.id);
               } , 
             icon: Icon(Icons.delete)),
         ),
