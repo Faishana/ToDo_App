@@ -200,7 +200,7 @@ class _homeState extends State<home> {
             width: 40,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(20),  //Make the box shape into oval shape
-              child: Image.asset("assets/images/Faishu1.jpeg"),
+              child: Image.asset("assets/images/bujuk1.jpg"),
             ),
           )
         ],
